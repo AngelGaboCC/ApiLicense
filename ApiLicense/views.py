@@ -2,12 +2,15 @@ from .models import License
 from .serializers import LicenseSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
 
 @api_view(['GET', 'POST'])
-
+@permission_classes([AllowAny])
 def license_list(request, format=None):
-      
+    
+    
+    
     if request.method == 'POST':
         serializer = LicenseSerializer(data=request.data)
         if serializer.is_valid():
@@ -23,6 +26,7 @@ def license_list(request, format=None):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([AllowAny])
 def license_detail(request, id, format=None):
     
     try:
