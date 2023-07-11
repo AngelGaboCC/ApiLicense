@@ -59,10 +59,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = [
-    'https://license-frontend.onrender.com' # frontend domain
-]
+CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOWED_ORIGINS = [
+#     'https://license-frontend.onrender.com' # frontend domain
+# ]
 
 ROOT_URLCONF = 'ApiLicense.urls'
 

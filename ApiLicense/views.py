@@ -9,15 +9,13 @@ from rest_framework.permissions import AllowAny
 @permission_classes([AllowAny])
 def license_list(request, format=None):
     
-    
-    
     if request.method == 'POST':
         serializer = LicenseSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:    
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_403_BAD_REQUEST)
             
     else: 
         licenses = License.objects.all()
